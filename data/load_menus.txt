@@ -1,0 +1,2 @@
+# TODO: Task 1.1
+mongoimport --uri="mongodb://mongo:oHLfdAcPxiioBylSWLiTyRzuqQmDiPmF@nozomi.proxy.rlwy.net:26101/restaurant?authSource=admin" --collection=menus --file menus.json --jsonArray

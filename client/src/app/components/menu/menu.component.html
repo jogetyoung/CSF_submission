@@ -1,0 +1,48 @@
+<div class="row mt-3">
+  <div class="col d-flex justify-content-between align-items-center">
+    <div class="fs-1 fw-bold text-primary">
+      Menu (${{getTotalPrice().toFixed(2)}})
+    </div>
+    <div>
+      <button type="button" class="btn btn-primary" (click)="placeOrder()">
+        Place Order ({{getTotalItems()}})
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- each row display a single mene item -->
+<div class="row mb-2">
+  <div class="col">
+    <div class="menu-item" *ngFor="let item of menuList">
+      <div>
+        <button type="button" class="btn btn-warning" (click)="decreaseQty(item.id)">
+          <i class="bi bi-x-square"></i>
+        </button>
+      </div>
+      <div class="menu-details" >
+        <div>
+          Name: <span class="fw-bold"> {{ item.name }}</span>
+        </div>
+        <div>Description:
+          <span class="fst-italic">
+            {{item.description}}
+          </span>
+        </div>
+        <div>
+          Price: {{item.price}}
+        </div>
+        <div class="text-danger fw-bold" *ngIf="quantities[item.id] > 0">
+          Quantity: {{quantities[item.id]}}
+        </div>
+      </div>
+      <div class="menu-button-end">
+        <button type="button" class="btn btn-success" (click)="increaseQty(item.id)">
+          <i class="bi bi-plus-circle"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
